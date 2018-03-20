@@ -1,0 +1,12 @@
+.box-body .clearfix {
+	padding-bottom: 5px;
+}
+
+.clearfix:nth-child(1) .input-group {
+	margin-left:-15px;
+}
+
+.dataTables_paginate {
+	margin-top: -55px;
+    float: right;
+}
