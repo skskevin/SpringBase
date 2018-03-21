@@ -6,9 +6,7 @@ package cn.mybase.ssm.service;
 
 import com.mybase.ssm.util.base.PagedResult;
 
-import cn.mybase.ssm.VulCategory.po.VulCategory;
 import cn.mybase.ssm.VulCategory.po.VulCategoryCustom;
-import cn.mybase.ssm.VulCategory.po.VulCategoryQueryVo;
 
 /**
  * <p>Title: VulCategoryService</p>
@@ -23,4 +21,5 @@ public interface VulCategoryService {
 	public int insert(VulCategoryCustom vulCategoryCustom) throws Exception;
 	public VulCategoryCustom selectById(Integer id) throws Exception;
 	public int update(VulCategoryCustom vulCategoryCustom, Integer id) throws Exception;
+	public int delete(Integer id) throws Exception;
 }

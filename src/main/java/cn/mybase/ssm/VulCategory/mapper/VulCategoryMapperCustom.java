@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-import cn.mybase.ssm.VulCategory.po.VulCategory;
 import cn.mybase.ssm.VulCategory.po.VulCategoryCustom;
 
 public interface VulCategoryMapperCustom {

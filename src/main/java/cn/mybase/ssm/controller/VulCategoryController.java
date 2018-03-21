@@ -3,7 +3,6 @@
  */
 package cn.mybase.ssm.controller;
 
-import org.apache.jasper.tagplugins.jstl.core.Out;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -100,8 +99,19 @@ public class VulCategoryController extends BaseController {
 	}
     
 	@RequestMapping(value = UPDATE, method = RequestMethod.POST)
+	@ResponseBody
 	public String update(VulCategoryCustom vulCategoryCustom, Integer id) throws Exception {
 		int rs = vulCategoryService.update(vulCategoryCustom, id);
+		if (rs > 0) {
+			return redirect("/VulCategory/list");
+		}
+		return null;
+	}
+	
+	@RequestMapping(value = DELETE, method = RequestMethod.GET)
+	@ResponseBody
+	public String delete(Integer id) throws Exception {
+		int rs = vulCategoryService.delete(id);
 		if (rs > 0) {
 			return redirect("/VulCategory/list");
 		}

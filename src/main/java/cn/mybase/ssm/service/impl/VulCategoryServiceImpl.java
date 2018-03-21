@@ -80,4 +80,12 @@ public class VulCategoryServiceImpl implements VulCategoryService {
 		return vulCategoryMapperCustom.update(vulCategoryCustom);
 	}
 
+	/* (non-Javadoc)
+	 * @see cn.mybase.ssm.service.VulCategoryService#delete(java.lang.Integer)
+	 */
+	@Override
+	public int delete(Integer id) throws Exception {
+		return vulCategoryMapper.deleteByPrimaryKey(id);
+	}
+
 }
