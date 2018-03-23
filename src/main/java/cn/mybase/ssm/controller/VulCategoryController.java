@@ -11,11 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.mybase.ssm.util.base.BaseController;
-import com.mybase.ssm.util.base.PagedResult;
-
 import cn.mybase.ssm.VulCategory.po.VulCategoryCustom;
 import cn.mybase.ssm.service.VulCategoryService;
+import cn.mybase.ssm.util.base.BaseController;
+import cn.mybase.ssm.util.base.PagedResult;
 
 /**
  * 

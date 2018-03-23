@@ -4,9 +4,8 @@
 package cn.mybase.ssm.service;
 
 
-import com.mybase.ssm.util.base.PagedResult;
-
 import cn.mybase.ssm.VulCategory.po.VulCategoryCustom;
+import cn.mybase.ssm.util.base.PagedResult;
 
 /**
  * <p>Title: VulCategoryService</p>
