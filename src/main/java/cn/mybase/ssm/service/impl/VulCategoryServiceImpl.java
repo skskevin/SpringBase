@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.github.pagehelper.PageHelper;
 
-import cn.mybase.ssm.VulCategory.mapper.VulCategoryMapper;
-import cn.mybase.ssm.VulCategory.mapper.VulCategoryMapperCustom;
-import cn.mybase.ssm.VulCategory.po.VulCategory;
-import cn.mybase.ssm.VulCategory.po.VulCategoryCustom;
+import cn.mybase.ssm.dao.VulCategoryMapper;
+import cn.mybase.ssm.dao.VulCategoryMapperCustom;
+import cn.mybase.ssm.po.VulCategory;
+import cn.mybase.ssm.po.VulCategoryCustom;
 import cn.mybase.ssm.service.VulCategoryService;
 import cn.mybase.ssm.util.base.BeanUtil;
 import cn.mybase.ssm.util.base.PagedResult;

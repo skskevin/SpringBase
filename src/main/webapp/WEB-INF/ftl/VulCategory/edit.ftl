@@ -17,35 +17,3 @@
 		</form>
 	</div>
 </div>
-<script type="text/javascript">
-	function update(){
-		$("span").remove(".errorClass");
-		$("br").remove(".errorClass");
-		var status = 1;
-		if($("#name").val()==""){
-			$("#nameLabel").prepend('<span class="errorClass" style="color:red">*名称不能为空</span><br class="errorClass"/>');
-			status = 0;
-		}
-		if(status == 0){
-			return false;
-		}else{
-		    console.log(11);
-			ajaxPost();
-		}
-	}
-		
-	function ajaxPost() {
-		var options = {
-	        url: '${ctx}/VulCategory/update',
-	        type: 'post',
-	        dataType: 'text',
-	        data: $("#EditForm").serialize(),
-	        success: function (data) {
-	        	$("#lgModal").modal('hide');
-	        	alertMsg("更新成功","success");
-	        	dataReload();
-	        }
-		};
-	$.ajax(options);
-	}
-</script>

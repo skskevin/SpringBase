@@ -46,7 +46,7 @@ function roleAdd(){
 	        dataType: 'text',
 	        data: $("#AddForm").serialize(),
 	        success: function (data) {
-	        	debugger;
+	        	<!--debugger;-->
 	        	$("#lgModal").modal('hide');
 	        	alertMsg("添加成功","success");
 	        	dataReload();

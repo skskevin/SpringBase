@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.mybase.ssm.VulCategory.mapper.VulCategoryMapperCustom">
+<mapper namespace="cn.mybase.ssm.dao.VulCategoryMapperCustom">
 	<!-- 列表查询sql片段 -->
 	<sql id="listForPage_where">
 		<!-- 使用动态sql，通过if判断，满足条件进行sql拼接 -->
@@ -10,7 +10,7 @@
 	</sql>
 	<!-- 漏洞分类列表查询 -->
 	<select id="listForPage" parameterType="String"
-		resultType="cn.mybase.ssm.VulCategory.po.VulCategoryCustom">
+		resultType="cn.mybase.ssm.po.VulCategoryCustom">
 		SELECT * FROM vul_category
 		<where>
 			<include refid="listForPage_where"></include>
@@ -18,7 +18,7 @@
 	</select>
 
 	<!-- 新增记录 -->
-	<insert id="insert" parameterType="cn.mybase.ssm.VulCategory.po.VulCategoryCustom"
+	<insert id="insert" parameterType="cn.mybase.ssm.po.VulCategoryCustom"
 		useGeneratedKeys="true" keyProperty="id">
 		insert into vul_category
 		(name,create_time)
@@ -27,7 +27,7 @@
 	</insert>
 	
 	<!-- 修改 -->
-	<update id="update" parameterType="cn.mybase.ssm.VulCategory.po.VulCategoryCustom">
+	<update id="update" parameterType="cn.mybase.ssm.po.VulCategoryCustom">
 		update vul_category
 		set name = #{name,jdbcType=VARCHAR}
 		where id = #{id,jdbcType=INTEGER}

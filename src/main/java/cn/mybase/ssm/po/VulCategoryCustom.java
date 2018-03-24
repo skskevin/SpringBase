@@ -1,4 +1,4 @@
-package cn.mybase.ssm.VulCategory.po;
+package cn.mybase.ssm.po;
 
 
 public class VulCategoryCustom extends VulCategory {

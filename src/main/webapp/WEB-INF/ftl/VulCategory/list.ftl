@@ -18,7 +18,7 @@
 						</div>
 					</div>
 					<div class="col-md-4">
-						<button type="button" onclick="dataReload();" class="btn btn-primary">搜索</button>
+						<button type="button" onclick="dataReload();" class="btn btn-primary" id="btn-search">搜索</button>
 					</div>
 				</div>
 				<table id="myDatatable" class="table table-bordered table-striped">
@@ -42,7 +42,6 @@
 var myDatatable;
 $(function() {
 	//初始化表格
-	
 	var No=0;
 	myDatatable = $('#myDatatable').DataTable({
 		"dom":'itflp',
@@ -115,4 +114,43 @@ function dataReload(){
 	myDatatable.ajax.reload();
 }
 
+<#-- 此函数必须放在list.ftl中 -->
+function update(){
+    console.log(11111);
+	$("span").remove(".errorClass");
+	$("br").remove(".errorClass");
+	var status = 1;
+	if($("#name").val()==""){
+		$("#nameLabel").prepend('<span class="errorClass" style="color:red">*名称不能为空</span><br class="errorClass"/>');
+		status = 0;
+	}
+	if(status == 0){
+		return false;
+	}else{
+		editAjaxPost();
+	}
+}
+	
+function editAjaxPost() {
+	var options = {
+        url: '${ctx}/VulCategory/update',
+        type: 'post',
+        dataType: 'text',
+        data: $("#EditForm").serialize(),
+        success: function (data) {
+        	$("#lgModal").modal('hide');
+        	alertMsg("更新成功","success");
+        	dataReload();
+        }
+	};
+	$.ajax(options);
+}
+
+//回车事件绑定搜索按钮
+document.onkeydown=function(event){
+	var e = event || window.event || arguments.callee.caller.arguments[0];
+	if(e && e.keyCode==13){ 
+		$('#btn-search').click();
+	}
+}; 
 </script>

@@ -31,11 +31,11 @@
                 <input type="text" name="account" class="username" placeholder="Account">
                 <input type="password" name="password" class="password" placeholder="Password">
                 <div style="text-align: left; margin-left: 10px;" id="vcode">
-	                <input type="text" name="vcode"   placeholder="Verification code" style="width: 110px; margin-left: -8px; margin-right: 8px;">
+	                <input type="text" name="vcode"   placeholder="验证码" style="width: 110px; margin-left: -8px; margin-right: 8px;">
                 	<img src="${ctx}/open/getGifCode" />
                 </div>
                 <button type="button" id="login">登录</button>
-                <button type="button" id="register" class="register">Register</button>
+                <#--<button type="button" id="register" class="register">Register</button>-->
                 <div class="error"><span>+</span></div>
             </form>
         </div>

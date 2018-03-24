@@ -1,4 +1,4 @@
-package cn.mybase.ssm.VulCategory.po;
+package cn.mybase.ssm.po;
 
 import java.util.Date;
 
