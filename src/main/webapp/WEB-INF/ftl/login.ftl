@@ -27,14 +27,14 @@
     	</script>
         <div class="page-container">
             <h1>Login</h1>
-            <form id="_form" action="" method="post">
-                <input type="text" name="account" class="username" placeholder="Account">
+            <form id="login_form" action="${ctx}/login" method="post">
+                <input type="text" name="username" class="username" placeholder="Username">
                 <input type="password" name="password" class="password" placeholder="Password">
                 <div style="text-align: left; margin-left: 10px;" id="vcode">
-	                <input type="text" name="vcode"   placeholder="验证码" style="width: 110px; margin-left: -8px; margin-right: 8px;">
-                	<img src="${ctx}/open/getGifCode" />
+	                <input type="text" name="captcha"   placeholder="验证码" style="width: 110px; margin-left: -8px; margin-right: 8px;">
+                	<img src="${ctx}/open/getVCode" />
                 </div>
-                <button type="button" id="login">登录</button>
+                <button type="submit" id="login">登录</button>
                 <#--<button type="button" id="register" class="register">Register</button>-->
                 <div class="error"><span>+</span></div>
             </form>
@@ -51,9 +51,9 @@
 				$("#vcode").on("click",'img',function(){
 					/**动态验证码，改变地址，多次在火狐浏览器下，不会变化的BUG，故这样解决*/
 					var i = new Image();
-					i.src = '${ctx}/open/getGifCode?'  + Math.random();
+					i.src = '${ctx}/open/getVCode?'  + Math.random();
 					$(i).replaceAll(this);
-					//$(this).clone(true).attr("src",'${ctx}/open/getGifCode?'  + Math.random()).replaceAll(this);
+					//$(this).clone(true).attr("src",'${ctx}/open/getVCode?'  + Math.random()).replaceAll(this);
 				});
 				//回车事件绑定
 				document.onkeydown=function(event){
@@ -64,8 +64,7 @@
 				}; 
 			
 				//登录操作
-			    $('#login').click(function(){
-			    	
+				$('#login_form').on('submit', function (e) {
 			        var username = $('.username').val();
 			        var password = $('.password').val();
 			        if(username == '') {
@@ -86,42 +85,16 @@
 			            });
 			            return false;
 			        }
-			        var pswd = MD5(username +"#" + password),
-			        	data = {pswd:pswd,email:username,rememberMe:$("#rememberMe").is(':checked')};
-			        var load = layer.load();
-			        
-			        $.ajax({
-			        	url:"${ctx}/user/submitLogin",
-			        	data:data,
-			        	type:"post",
-			        	dataType:"json",
-			        	beforeSend:function(){
-			        		layer.msg('开始登录，请注意后台控制台。');
-			        	},
-			        	success:function(result){
-				        	layer.close(load);
-				    		if(result && result.status != 200){
-				    			layer.msg(result.message,function(){});
-				    			$('.password').val('');
-				    			return;
-				    		}else{
-				    			layer.msg('登录成功！');
-				    			setTimeout(function(){
-				    				//登录返回
-					    			window.location.href= result.back_url || "${ctx}";
-				    			},1000)
-				    		}
-			        	},
-			        	error:function(e){
-			        		console.log(e,e.message);
-			        		layer.msg('请看后台Java控制台，是否报错，确定已经配置数据库和Redis',new Function());
-			        	}
-			        });
+			        layer.load();
+			        return true;
 			    });
 			    $('.page-container form .username, .page-container form .password').keyup(function(){
 			        $(this).parent().find('.error').fadeOut('fast');
 			    });
 			    
+			    <#if errmsg??>
+			    	layer.msg("${errmsg}");
+			    </#if>
 			});
         </script>
     </body>

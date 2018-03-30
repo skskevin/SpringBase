@@ -9,17 +9,17 @@
 				</a>
 				<ul class="treeview-menu">
 					<li>
-						<a target="navTab" href="${ctx}/admin/emailInfo/list">
+						<a target="navTab" href="${ctx}/emailInfo/list">
 					<i class="fa fa-inbox"></i> <span>发件箱</span>
 				</a>
 				</li>
 				<!--<li>
-					<a target="navTab" href="${ctx}/admin/emailInfo/add">
+					<a target="navTab" href="${ctx}/emailInfo/add">
 						<i class="fa fa-envelope-o"></i> 发送
 					</a>
 				</li>-->
 				<li>
-					<a target="navTab" href="${ctx}/admin/emailAccountInfo/list">
+					<a target="navTab" href="${ctx}/emailAccountInfo/list">
 							<i class="fa fa-circle-o"></i> 账号管理
 						</a>
 					</li>
@@ -34,19 +34,19 @@
 					</a>
 					<ul class="treeview-menu">
 						<li>
-							<a target="navTab" href="${ctx}/admin/security/list">
+							<a target="navTab" href="${ctx}/security/list">
 								<i class="fa fa-inbox"></i> 
 								<span>用户管理</span> 
 							</a>
 						</li>
 						<li>
-							<a target="navTab" href="${ctx}/admin/role/list">
+							<a target="navTab" href="${ctx}/role/list">
 								<i class="fa fa-inbox"></i> 
 								<span>角色管理</span> 
 							</a>
 						</li>
 						<li>
-							<a target="navTab" href="${ctx}/admin/permission/list">
+							<a target="navTab" href="${ctx}/permission/list">
 								<i class="fa fa-inbox"></i> 
 								<span>权限管理</span> 
 							</a>

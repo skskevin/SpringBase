@@ -16,6 +16,11 @@ import java.util.Random;
 
 import javax.imageio.ImageIO;
 
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.session.Session;
+
+import cn.mybase.ssm.shiro.CustomSessionManager;
+
 //import com.sojson.core.shiro.token.manager.TokenManager;
   
 public class VerifyCodeUtils{  
@@ -27,6 +32,14 @@ public class VerifyCodeUtils{
     private static Random random = new Random();  
   
     
+    /**
+	 * 获取当前用户的Session
+	 * @return
+	 */
+	public static Session getSession(){
+		return SecurityUtils.getSubject().getSession();
+	}
+	
     /**
      * 验证码对象
      * @author zhou-baicheng
@@ -81,17 +94,15 @@ public class VerifyCodeUtils{
      * 清除验证码
      */
     public static void clearVerifyCode(){
-//    	TokenManager.getSession().removeAttribute(V_CODE);
+    	getSession().removeAttribute(V_CODE);
     }
     
     /**
      * 对比验证码   
      */
-    public static boolean verifyCode(String code){
-//    	String v = (String)TokenManager.getVal2Session(V_CODE);
-//    	return StringUtils.equals(v, StringUtils.lowerCase(code));
-    	System.out.println("verifyCode");
-    	return true;
+    public static boolean verifyCode(String captcha){
+    	String v = (String) CustomSessionManager.getVal2Session(V_CODE);
+    	return StringUtils.equals(v, StringUtils.lowerCase(captcha));
     }
     
     /** 

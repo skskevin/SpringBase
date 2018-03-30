@@ -1,24 +1,12 @@
-/*
- * Copyright 2015-2016 RonCoo(http://www.roncoo.com) Group.
- *  
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *  
- *      http://www.apache.org/licenses/LICENSE-2.0
- *  
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package cn.mybase.ssm.util;
 
 /**
- * 常量工具类
  * 
- * @author wujing
+ * @Title: Constants
+ * @author dongchuan
+ * @date 2018年3月28日 下午4:07:24
+ * @Description: TODO
+ * @version 1.0
  */
 public final class Constants {
 
@@ -26,18 +14,25 @@ public final class Constants {
 	}
 
 	/**
-	 * 常量
 	 * 
-	 * @author wujing
+	 * @Title: Token
+	 * @author dongchuan
+	 * @date 2018年3月28日 下午4:07:59
+	 * @Description: 常量
+	 * @version 1.0
 	 */
 	public interface Token {
-		public final static String RONCOO = "roncoo";
+		public final static String FLAG = "login";
+		public final static String ERRMSG = "errmsg";
 	}
 
 	/**
-	 * 状态类型
 	 * 
-	 * @author wujing
+	 * @Title: Status
+	 * @author dongchuan
+	 * @date 2018年3月28日 下午4:11:51
+	 * @Description: 状态类型
+	 * @version 1.0
 	 */
 	public interface Status {
 		public final static String ZERO = "0";
@@ -47,9 +42,11 @@ public final class Constants {
 	}
 
 	/**
-	 * 数字类型
 	 * 
-	 * @author wujing
+	 * @Title: Num
+	 * @author dongchuan
+	 * @date 2018年3月28日 下午4:12:13
+	 * @Description: 数字类型
 	 * @version 1.0
 	 */
 	public interface Num {

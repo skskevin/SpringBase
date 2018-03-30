@@ -9,15 +9,16 @@ import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.beanutils.ConvertUtils;
 import org.apache.commons.beanutils.converters.DateConverter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.github.pagehelper.PageHelper;
 
-import cn.mybase.ssm.dao.VulCategoryMapper;
-import cn.mybase.ssm.dao.VulCategoryMapperCustom;
-import cn.mybase.ssm.po.VulCategory;
-import cn.mybase.ssm.po.VulCategoryCustom;
+import cn.mybase.ssm.bean.entity.VulCategory;
+import cn.mybase.ssm.bean.entity.VulCategoryCustom;
 import cn.mybase.ssm.service.VulCategoryService;
+import cn.mybase.ssm.service.impl.dao.impl.mybatis.VulCategoryMapper;
+import cn.mybase.ssm.service.impl.dao.impl.mybatis.VulCategoryMapperCustom;
 import cn.mybase.ssm.util.base.BeanUtil;
 import cn.mybase.ssm.util.base.PagedResult;
 
@@ -29,6 +30,7 @@ import cn.mybase.ssm.util.base.PagedResult;
  * @Description: TODO
  * @version 1.0
  */
+@Service
 public class VulCategoryServiceImpl implements VulCategoryService {
 
 	@Autowired

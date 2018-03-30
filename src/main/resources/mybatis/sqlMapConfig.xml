@@ -8,16 +8,6 @@
 		<!--是否开启自动驼峰命名规则（camel case）映射，即从经典数据库列名 A_COLUMN 到经典Java 属性名 aColumn 的类似映射。 -->
 		<setting name="mapUnderscoreToCamelCase" value="true" />
 	</settings>
-	<!-- 配置别名 -->
-	<typeAliases>
-		<!-- 批量扫描别名 -->
-		<package name="cn.mybase.ssm.po" />
-	</typeAliases>
-
-	<!-- 配置mapper 由于使用spring和mybatis的整合包进行mapper扫描，这里不需要配置了。 但是必须遵循：mapper.xml和mapper.java文件同名且在一个目录 -->
-	<!-- <mappers></mappers> -->
-
-
 	<plugins>
 		<!-- com.github.pagehelper为PageHelper类所在包名 -->
 		<plugin interceptor="com.github.pagehelper.PageHelper">

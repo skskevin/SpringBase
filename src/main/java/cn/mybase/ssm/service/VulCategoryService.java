@@ -4,7 +4,7 @@
 package cn.mybase.ssm.service;
 
 
-import cn.mybase.ssm.po.VulCategoryCustom;
+import cn.mybase.ssm.bean.entity.VulCategoryCustom;
 import cn.mybase.ssm.util.base.PagedResult;
 
 /**
