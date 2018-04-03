@@ -30,7 +30,7 @@ import cn.mybase.ssm.util.base.Page;
  */
 public interface RoleService {
 
-	Result<Role> query(long id);
+	Result<Role> query(Integer id);
 	
 	Result<Role> queryByRoleName(String roleName);
 
@@ -38,11 +38,11 @@ public interface RoleService {
 
 	Result<Integer> update(Role Role);
 
-	Result<Integer> delete(long id);
+	Result<Integer> delete(Integer id);
 
 	Result<Page<Role>> listForPage(int pageCurrent, int pageSize, String date, String seah);
 	
-	Result<List<Role>> listForId(List<Long> idList);
+	Result<List<Role>> listForId(List<Integer> idList);
 
 	Result<List<Role>> list();
 }

@@ -35,7 +35,7 @@ public class PermissionBiz {
 		return service.listForPage(pageCurrent, pageSize, date, seah);
 	}
 
-	public Result<Permission> query(long id) {
+	public Result<Permission> query(Integer id) {
 		return service.query(id);
 	}
 
@@ -44,7 +44,7 @@ public class PermissionBiz {
 	}
 	
 
-	public Result<Integer> delete(long id) {
+	public Result<Integer> delete(Integer id) {
 		return service.delete(id);
 	}
 

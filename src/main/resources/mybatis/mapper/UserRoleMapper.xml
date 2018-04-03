@@ -84,13 +84,13 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from user_role
     where id = #{id,jdbcType=BIGINT}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from user_role
     where id = #{id,jdbcType=BIGINT}
   </delete>
@@ -151,7 +151,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="cn.mybase.ssm.bean.entity.UserRoleExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="cn.mybase.ssm.bean.entity.UserRoleExample" resultType="java.lang.Integer">
     select count(*) from user_role
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />

@@ -20,8 +20,8 @@ import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-public class RcEmailInfoVo implements Serializable {
-	private Long id;
+public class EmailInfoVo implements Serializable {
+	private Integer id;
 
 	private String statusId;
 
@@ -43,11 +43,11 @@ public class RcEmailInfoVo implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

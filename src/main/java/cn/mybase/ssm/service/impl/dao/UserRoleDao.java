@@ -29,7 +29,7 @@ public interface UserRoleDao {
 	
 	UserRole selectById(long id);
  
-	List<UserRole> selectByUserId(long id);
+	List<UserRole> selectByUserId(Integer id);
 	
 	UserRole selectByUserRole(UserRole UserRole);
 	
@@ -41,6 +41,6 @@ public interface UserRoleDao {
 	
 	int deleteById(long id);
 	
-	int deleteByUserId(long userId);
+	int deleteByUserId(Integer userId);
 	
 }

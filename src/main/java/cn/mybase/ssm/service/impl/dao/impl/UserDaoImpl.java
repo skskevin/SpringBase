@@ -83,7 +83,7 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public int deleteById(Long id) {
+	public int deleteById(Integer id) {
 		return mapper.deleteByPrimaryKey(id);
 	}
 
@@ -110,7 +110,7 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public User select(long id) {
+	public User select(Integer id) {
 		return mapper.selectByPrimaryKey(id);
 	}
 

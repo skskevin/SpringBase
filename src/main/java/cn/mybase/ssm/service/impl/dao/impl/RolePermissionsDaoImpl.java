@@ -34,7 +34,7 @@ public class RolePermissionsDaoImpl implements RolePermissionsDao {
 	private RolePermissionsMapper mapper;
 
 	@Override
-	public List<RolePermissions> selectByRoleId(long id) {
+	public List<RolePermissions> selectByRoleId(Integer id) {
 		RolePermissionsExample example = new RolePermissionsExample();
 		Criteria criteria = example.createCriteria();
 		criteria.andRoleIdEqualTo(id);
@@ -65,12 +65,12 @@ public class RolePermissionsDaoImpl implements RolePermissionsDao {
 	}
 
 	@Override
-	public RolePermissions selectById(long id) {
+	public RolePermissions selectById(Integer id) {
 		return mapper.selectByPrimaryKey(id);
 	}
 
 	@Override
-	public int deleteByRoleId(long roleId) {
+	public int deleteByRoleId(Integer roleId) {
 		RolePermissionsExample example = new RolePermissionsExample();
 		Criteria criteria = example.createCriteria();
 		criteria.andRoleIdEqualTo(roleId);
@@ -78,7 +78,7 @@ public class RolePermissionsDaoImpl implements RolePermissionsDao {
 	}
 
 	@Override
-	public int countByRoleId(long roleId) {
+	public int countByRoleId(Integer roleId) {
 		RolePermissionsExample example = new RolePermissionsExample();
 		Criteria criteria = example.createCriteria();
 		criteria.andRoleIdEqualTo(roleId);
@@ -86,7 +86,7 @@ public class RolePermissionsDaoImpl implements RolePermissionsDao {
 	}
 
 	@Override
-	public List<RolePermissions> listForRoleId(List<Long> idList) {
+	public List<RolePermissions> listForRoleId(List<Integer> idList) {
 		RolePermissionsExample example = new RolePermissionsExample();
 		Criteria criteria = example.createCriteria();
 		criteria.andRoleIdIn(idList);

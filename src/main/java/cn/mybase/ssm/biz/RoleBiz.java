@@ -45,18 +45,18 @@ public class RoleBiz {
 	@Autowired
 	private PermissionService permissionService;
 
-	public Result<Page<Role>> listForPage(int pageCurrent, int pageSize, String date, String seah) {
-		return service.listForPage(pageCurrent, pageSize, date, seah);
+	public Result<Page<Role>> listForPage(int pageCurrent, int pageSize, String date, String searh) {
+		return service.listForPage(pageCurrent, pageSize, date, searh);
 	}
 
-	public Result<RoleVo> query(long id) {
+	public Result<RoleVo> query(Integer id) {
 		Result<Role> result = service.query(id);
 		Result<RoleVo> resultRoleVo = new Result<RoleVo>();
 		if (result.isStatus()) {
 			RoleVo RoleVo = new RoleVo(result.getResultData());
 			Result<List<RolePermissions>> resultRolePermissions = rolePermissionsService.queryByRoleId(id);
 			if (resultRolePermissions.isStatus()) {
-				ArrayList<Long> idList = new ArrayList<Long>();
+				ArrayList<Integer> idList = new ArrayList<Integer>();
 				for (RolePermissions RolePermissions : resultRolePermissions.getResultData()) {
 					idList.add(RolePermissions.getPermissionId());
 				}
@@ -77,7 +77,7 @@ public class RoleBiz {
 	}
 
 	@Transactional
-	public Result<Integer> save(Role Role, List<Long> permissionList) {
+	public Result<Integer> save(Role Role, List<Integer> permissionList) {
 		Result<Integer> result = service.save(Role);
 		if (result.isStatus()) {
 			Result<Role> resultRole = service.queryByRoleName(Role.getRoleName());
@@ -89,7 +89,7 @@ public class RoleBiz {
 	}
 
 	@Transactional
-	public Result<Integer> delete(long id) {
+	public Result<Integer> delete(Integer id) {
 		Result<Integer> result = rolePermissionsService.delete(id);
 		if (result.isStatus()) {
 			return service.delete(id);
@@ -98,7 +98,7 @@ public class RoleBiz {
 	}
 
 	@Transactional
-	public Result<Integer> update(Role Role, List<Long> permissionList) {
+	public Result<Integer> update(Role Role, List<Integer> permissionList) {
 		Result<Integer> result = rolePermissionsService.update(Role.getId(), permissionList);
 		if (result.isStatus()) {
 			return service.update(Role);

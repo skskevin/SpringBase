@@ -29,17 +29,17 @@ import cn.mybase.ssm.util.base.Page;
  */
 public interface PermissionDao {
 
-	Permission selectById(long id);
+	Permission selectById(Integer id);
 
 	int insert(Permission permission);
 
 	int update(Permission permission);
 
-	int deleteById(long id);
+	int deleteById(Integer id);
 
 	Page<Permission> listForPage(int pageCurrent, int pageSize, String date, String seah);
 
-	List<Permission> listForId(List<Long> idList);
+	List<Permission> listForId(List<Integer> idList);
 	
 	List<Permission> list();
 }

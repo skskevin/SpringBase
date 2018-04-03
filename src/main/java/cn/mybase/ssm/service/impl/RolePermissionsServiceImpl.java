@@ -32,7 +32,7 @@ public class RolePermissionsServiceImpl implements RolePermissionsService {
 	private RolePermissionsDao dao;
 
 	@Override
-	public Result<RolePermissions> query(long id) {
+	public Result<RolePermissions> query(Integer id) {
 		Result<RolePermissions> result = new Result<RolePermissions>();
 		if (id < 0) {
 			result.setErrMsg("此id无效");
@@ -48,7 +48,7 @@ public class RolePermissionsServiceImpl implements RolePermissionsService {
 	}
 
 	@Override
-	public Result<List<RolePermissions>> queryByRoleId(long id) {
+	public Result<List<RolePermissions>> queryByRoleId(Integer id) {
 		Result<List<RolePermissions>> result = new Result<List<RolePermissions>>();
 		if (id < 0) {
 			result.setErrMsg("此id无效");
@@ -64,7 +64,7 @@ public class RolePermissionsServiceImpl implements RolePermissionsService {
 	}
 
 	@Override
-	public Result<Integer> save(long roleId, List<Long> permissionList) {
+	public Result<Integer> save(Integer roleId, List<Integer> permissionList) {
 		Result<Integer> result = new Result<Integer>();
 		if (roleId < 1) {
 			result.setErrMsg("此角色id无效");
@@ -78,7 +78,7 @@ public class RolePermissionsServiceImpl implements RolePermissionsService {
 		}
 		RolePermissions RolePermissions = new RolePermissions();
 		int i = 0;
-		for (Long permissionId : permissionList) {
+		for (Integer permissionId : permissionList) {
 			RolePermissions.setPermissionId(permissionId);
 			RolePermissions.setRoleId(roleId);
 			i = i + dao.insert(RolePermissions);
@@ -94,7 +94,7 @@ public class RolePermissionsServiceImpl implements RolePermissionsService {
 	}
 
 	@Override
-	public Result<Integer> delete(long roleId) {
+	public Result<Integer> delete(Integer roleId) {
 		Result<Integer> result = new Result<Integer>();
 		if (roleId < 0) {
 			result.setErrMsg("此id无效");
@@ -128,7 +128,7 @@ public class RolePermissionsServiceImpl implements RolePermissionsService {
 	}
 
 	@Override
-	public Result<Integer> update(long roleId, List<Long> permissionList) {
+	public Result<Integer> update(Integer roleId, List<Integer> permissionList) {
 		Result<Integer> result = new Result<Integer>();
 		if (roleId < 1) {
 			result.setErrMsg("此角色id无效");
@@ -142,7 +142,7 @@ public class RolePermissionsServiceImpl implements RolePermissionsService {
 	}
 
 	@Override
-	public Result<List<RolePermissions>> listForRoleId(List<Long> idList) {
+	public Result<List<RolePermissions>> listForRoleId(List<Integer> idList) {
 		Result<List<RolePermissions>> result = new Result<List<RolePermissions>>();
 		if (idList.size() < 1) {
 			result.setErrMsg("没有id需要查询");

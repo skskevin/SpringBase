@@ -115,52 +115,52 @@ public class UserRoleExample {
             return (Criteria) this;
         }
 
-        public Criteria andIdEqualTo(Long value) {
+        public Criteria andIdEqualTo(Integer value) {
             addCriterion("id =", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotEqualTo(Long value) {
+        public Criteria andIdNotEqualTo(Integer value) {
             addCriterion("id <>", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThan(Long value) {
+        public Criteria andIdGreaterThan(Integer value) {
             addCriterion("id >", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThanOrEqualTo(Long value) {
+        public Criteria andIdGreaterThanOrEqualTo(Integer value) {
             addCriterion("id >=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThan(Long value) {
+        public Criteria andIdLessThan(Integer value) {
             addCriterion("id <", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThanOrEqualTo(Long value) {
+        public Criteria andIdLessThanOrEqualTo(Integer value) {
             addCriterion("id <=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdIn(List<Long> values) {
+        public Criteria andIdIn(List<Integer> values) {
             addCriterion("id in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotIn(List<Long> values) {
+        public Criteria andIdNotIn(List<Integer> values) {
             addCriterion("id not in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdBetween(Long value1, Long value2) {
+        public Criteria andIdBetween(Integer value1, Integer value2) {
             addCriterion("id between", value1, value2, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotBetween(Long value1, Long value2) {
+        public Criteria andIdNotBetween(Integer value1, Integer value2) {
             addCriterion("id not between", value1, value2, "id");
             return (Criteria) this;
         }
@@ -365,52 +365,52 @@ public class UserRoleExample {
             return (Criteria) this;
         }
 
-        public Criteria andUserIdEqualTo(Long value) {
+        public Criteria andUserIdEqualTo(Integer value) {
             addCriterion("user_id =", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotEqualTo(Long value) {
+        public Criteria andUserIdNotEqualTo(Integer value) {
             addCriterion("user_id <>", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdGreaterThan(Long value) {
+        public Criteria andUserIdGreaterThan(Integer value) {
             addCriterion("user_id >", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdGreaterThanOrEqualTo(Long value) {
+        public Criteria andUserIdGreaterThanOrEqualTo(Integer value) {
             addCriterion("user_id >=", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdLessThan(Long value) {
+        public Criteria andUserIdLessThan(Integer value) {
             addCriterion("user_id <", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdLessThanOrEqualTo(Long value) {
+        public Criteria andUserIdLessThanOrEqualTo(Integer value) {
             addCriterion("user_id <=", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdIn(List<Long> values) {
+        public Criteria andUserIdIn(List<Integer> values) {
             addCriterion("user_id in", values, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotIn(List<Long> values) {
+        public Criteria andUserIdNotIn(List<Integer> values) {
             addCriterion("user_id not in", values, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdBetween(Long value1, Long value2) {
+        public Criteria andUserIdBetween(Integer value1, Integer value2) {
             addCriterion("user_id between", value1, value2, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotBetween(Long value1, Long value2) {
+        public Criteria andUserIdNotBetween(Integer value1, Integer value2) {
             addCriterion("user_id not between", value1, value2, "userId");
             return (Criteria) this;
         }
@@ -425,52 +425,52 @@ public class UserRoleExample {
             return (Criteria) this;
         }
 
-        public Criteria andRolesIdEqualTo(Long value) {
+        public Criteria andRolesIdEqualTo(Integer value) {
             addCriterion("roles_id =", value, "rolesId");
             return (Criteria) this;
         }
 
-        public Criteria andRolesIdNotEqualTo(Long value) {
+        public Criteria andRolesIdNotEqualTo(Integer value) {
             addCriterion("roles_id <>", value, "rolesId");
             return (Criteria) this;
         }
 
-        public Criteria andRolesIdGreaterThan(Long value) {
+        public Criteria andRolesIdGreaterThan(Integer value) {
             addCriterion("roles_id >", value, "rolesId");
             return (Criteria) this;
         }
 
-        public Criteria andRolesIdGreaterThanOrEqualTo(Long value) {
+        public Criteria andRolesIdGreaterThanOrEqualTo(Integer value) {
             addCriterion("roles_id >=", value, "rolesId");
             return (Criteria) this;
         }
 
-        public Criteria andRolesIdLessThan(Long value) {
+        public Criteria andRolesIdLessThan(Integer value) {
             addCriterion("roles_id <", value, "rolesId");
             return (Criteria) this;
         }
 
-        public Criteria andRolesIdLessThanOrEqualTo(Long value) {
+        public Criteria andRolesIdLessThanOrEqualTo(Integer value) {
             addCriterion("roles_id <=", value, "rolesId");
             return (Criteria) this;
         }
 
-        public Criteria andRolesIdIn(List<Long> values) {
+        public Criteria andRolesIdIn(List<Integer> values) {
             addCriterion("roles_id in", values, "rolesId");
             return (Criteria) this;
         }
 
-        public Criteria andRolesIdNotIn(List<Long> values) {
+        public Criteria andRolesIdNotIn(List<Integer> values) {
             addCriterion("roles_id not in", values, "rolesId");
             return (Criteria) this;
         }
 
-        public Criteria andRolesIdBetween(Long value1, Long value2) {
+        public Criteria andRolesIdBetween(Integer value1, Integer value2) {
             addCriterion("roles_id between", value1, value2, "rolesId");
             return (Criteria) this;
         }
 
-        public Criteria andRolesIdNotBetween(Long value1, Long value2) {
+        public Criteria andRolesIdNotBetween(Integer value1, Integer value2) {
             addCriterion("roles_id not between", value1, value2, "rolesId");
             return (Criteria) this;
         }

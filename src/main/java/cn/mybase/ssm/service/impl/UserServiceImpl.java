@@ -102,7 +102,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public Result<Integer> delete(long id) {
+	public Result<Integer> delete(Integer id) {
 		Result<Integer> result = new Result<Integer>();
 		if (id < 0) {
 			result.setErrMsg("此id无效");
@@ -136,7 +136,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public Result<User> query(long id) {
+	public Result<User> query(Integer id) {
 		Result<User> result = new Result<User>();
 		if (id < 1) {
 			result.setErrMsg("用户id不存在");

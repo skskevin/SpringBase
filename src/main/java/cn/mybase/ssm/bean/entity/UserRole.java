@@ -3,7 +3,7 @@ package cn.mybase.ssm.bean.entity;
 import java.util.Date;
 
 public class UserRole {
-    private Long id;
+    private Integer id;
 
     private String status;
 
@@ -11,15 +11,15 @@ public class UserRole {
 
     private Date updateTime;
 
-    private Long userId;
+    private Integer userId;
 
-    private Long rolesId;
+    private Integer rolesId;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -47,19 +47,19 @@ public class UserRole {
         this.updateTime = updateTime;
     }
 
-    public Long getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(Long userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 
-    public Long getRolesId() {
+    public Integer getRolesId() {
         return rolesId;
     }
 
-    public void setRolesId(Long rolesId) {
+    public void setRolesId(Integer rolesId) {
         this.rolesId = rolesId;
     }
 }

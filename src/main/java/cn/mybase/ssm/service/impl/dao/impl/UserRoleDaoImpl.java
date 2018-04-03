@@ -40,7 +40,7 @@ public class UserRoleDaoImpl implements UserRoleDao {
 	private UserRoleMapper mapper;
 
 	@Override
-	public List<UserRole> selectByUserId(long id) {
+	public List<UserRole> selectByUserId(Integer id) {
 		UserRoleExample example = new UserRoleExample();
 		Criteria criteria = example.createCriteria();
 		criteria.andUserIdEqualTo(id);
@@ -96,7 +96,7 @@ public class UserRoleDaoImpl implements UserRoleDao {
 	}
 
 	@Override
-	public int deleteByUserId(long userId) {
+	public int deleteByUserId(Integer userId) {
 		UserRoleExample example = new UserRoleExample();
 		Criteria criteria = example.createCriteria();
 		criteria.andUserIdEqualTo(userId);

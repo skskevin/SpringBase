@@ -31,7 +31,7 @@ public interface UserService {
 
 	Result<Page<User>> listForPage(int pageCurrent, int pageSize, String date, String search);
 
-	Result<User> query(long id);
+	Result<User> query(Integer id);
 
 	Result<User> queryByUserNo(String userno);
 
@@ -39,6 +39,6 @@ public interface UserService {
 
 	Result<Integer> update(User User);
 
-	Result<Integer> delete(long id);
+	Result<Integer> delete(Integer id);
 
 }

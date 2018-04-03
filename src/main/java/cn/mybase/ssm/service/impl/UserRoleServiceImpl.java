@@ -32,7 +32,7 @@ public class UserRoleServiceImpl implements UserRoleService {
 	private UserRoleDao dao;
 
 	@Override
-	public Result<List<UserRole>> queryByUserId(long id) {
+	public Result<List<UserRole>> queryByUserId(Integer id) {
 		Result<List<UserRole>> result = new Result<List<UserRole>>();
 		if (id < 0) {
 			result.setErrMsg("此id无效");
@@ -121,7 +121,7 @@ public class UserRoleServiceImpl implements UserRoleService {
 	}
 
 	@Override
-	public Result<Integer> updateByUserId(long userId, List<Long> roles) {
+	public Result<Integer> updateByUserId(Integer userId, List<Integer> roles) {
 		Result<Integer> result = new Result<Integer>();
 		UserRole UserRole = new UserRole();
 		if (userId < 1) {
@@ -129,7 +129,7 @@ public class UserRoleServiceImpl implements UserRoleService {
 			return result;
 		}
 		dao.deleteByUserId(userId);
-		for (Long rolesId : roles) {
+		for (Integer rolesId : roles) {
 			UserRole.setUserId(userId);
 			UserRole.setRolesId(rolesId);
 			dao.insert(UserRole);

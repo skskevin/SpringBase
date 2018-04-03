@@ -6,7 +6,8 @@ import java.util.Date;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class RolePermissions implements Serializable {
-    private Long id;
+
+	private Integer id;
 
     private String status;
 
@@ -16,17 +17,17 @@ public class RolePermissions implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date updateTime;
 
-    private Long roleId;
+    private Integer roleId;
 
-    private Long permissionId;
+    private Integer permissionId;
 
     private static final long serialVersionUID = 1L;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -54,19 +55,19 @@ public class RolePermissions implements Serializable {
         this.updateTime = updateTime;
     }
 
-    public Long getRoleId() {
+    public Integer getRoleId() {
         return roleId;
     }
 
-    public void setRoleId(Long roleId) {
+    public void setRoleId(Integer roleId) {
         this.roleId = roleId;
     }
 
-    public Long getPermissionId() {
+    public Integer getPermissionId() {
         return permissionId;
     }
 
-    public void setPermissionId(Long permissionId) {
+    public void setPermissionId(Integer permissionId) {
         this.permissionId = permissionId;
     }
 

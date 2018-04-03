@@ -3,7 +3,7 @@ package cn.mybase.ssm.bean.entity;
 import java.util.Date;
 
 public class User {
-    private Long id;
+    private Integer id;
 
     private String status;
 
@@ -19,11 +19,11 @@ public class User {
 
     private Integer sex;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

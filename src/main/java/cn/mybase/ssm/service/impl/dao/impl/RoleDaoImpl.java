@@ -37,7 +37,7 @@ public class RoleDaoImpl implements RoleDao {
 	private RoleMapper mapper;
 
 	@Override
-	public Role selectById(long id) {
+	public Role selectById(Integer id) {
 		return mapper.selectByPrimaryKey(id);
 	}
 
@@ -56,7 +56,7 @@ public class RoleDaoImpl implements RoleDao {
 	}
 
 	@Override
-	public int deleteById(long id) {
+	public int deleteById(Integer id) {
 		return mapper.deleteByPrimaryKey(id);
 	}
 
@@ -102,7 +102,7 @@ public class RoleDaoImpl implements RoleDao {
 	}
 
 	@Override
-	public List<Role> listForId(List<Long> idList) {
+	public List<Role> listForId(List<Integer> idList) {
 		RoleExample example = new RoleExample();
 		Criteria criteria = example.createCriteria();
 		criteria.andIdIn(idList);

@@ -39,6 +39,10 @@
 				/login = authc
 				/exit = anon
 				/index = authcBasic,perms[user:read]
+				/user/list=authcBasic,perms[admin:read]
+				/user/save=authcBasic,perms[admin:insert]
+				/user/update=authcBasic,perms[admin:update]
+				/user/delete=authcBasic,perms[admin:delete]
 				/role/list=authcBasic,perms[admin:read]
 				/role/save=authcBasic,perms[admin:insert]
 				/role/update=authcBasic,perms[admin:update]

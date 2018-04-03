@@ -2,8 +2,10 @@ package cn.mybase.ssm.bean.entity;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class Role {
-    private Long id;
+    private Integer id;
 
     private String status;
 
@@ -15,11 +17,11 @@ public class Role {
 
     private String roleValue;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -30,7 +32,8 @@ public class Role {
     public void setStatus(String status) {
         this.status = status == null ? null : status.trim();
     }
-
+    
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     public Date getCreateTime() {
         return createTime;
     }

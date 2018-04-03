@@ -38,7 +38,7 @@ public class PermissionDaoImpl implements PermissionDao {
 	private PermissionMapper mapper;
 
 	@Override
-	public Permission selectById(long id) {
+	public Permission selectById(Integer id) {
 		return mapper.selectByPrimaryKey(id);
 	}
 
@@ -57,7 +57,7 @@ public class PermissionDaoImpl implements PermissionDao {
 	}
 
 	@Override
-	public int deleteById(long id) {
+	public int deleteById(Integer id) {
 		return mapper.deleteByPrimaryKey(id);
 	}
 
@@ -84,7 +84,7 @@ public class PermissionDaoImpl implements PermissionDao {
 	}
 
 	@Override
-	public List<Permission> listForId(List<Long> idList) {
+	public List<Permission> listForId(List<Integer> idList) {
 		PermissionExample example = new PermissionExample();
 		example.setOrderByClause("id desc");
 		Criteria criteria = example.createCriteria();

@@ -23,4 +23,16 @@ public class ParamUtil {
 		}
 		return null;
 	}
+	
+	public final static List<Integer> toIntList(String str, String splitStr) {
+		if (str != null) {
+			ArrayList<Integer> intList = new ArrayList<Integer>();
+			String[] strList = str.split(splitStr);
+			for (String string : strList) {
+				intList.add(Integer.parseInt(string));
+			}
+			return intList;
+		}
+		return null;
+	}
 }

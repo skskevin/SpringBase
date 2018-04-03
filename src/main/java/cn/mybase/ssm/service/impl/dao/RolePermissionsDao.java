@@ -28,9 +28,9 @@ import cn.mybase.ssm.bean.entity.RolePermissions;
  */
 public interface RolePermissionsDao {
 
-	RolePermissions selectById(long id);
+	RolePermissions selectById(Integer id);
 
-	List<RolePermissions> selectByRoleId(long id);
+	List<RolePermissions> selectByRoleId(Integer id);
 
 	int insert(RolePermissions RolePermissions);
 
@@ -38,9 +38,9 @@ public interface RolePermissionsDao {
 
 	int delectByRolePermissions(RolePermissions RolePermissions);
 
-	int deleteByRoleId(long roleId);
+	int deleteByRoleId(Integer roleId);
 	
-	int countByRoleId(long roleId);
+	int countByRoleId(Integer roleId);
 	
-	List<RolePermissions> listForRoleId(List<Long> idList);
+	List<RolePermissions> listForRoleId(List<Integer> idList);
 }

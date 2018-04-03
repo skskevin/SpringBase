@@ -3,7 +3,7 @@ package cn.mybase.ssm.bean.entity;
 import java.util.Date;
 
 public class Permission {
-    private Long id;
+    private Integer id;
 
     private String status;
 
@@ -15,11 +15,11 @@ public class Permission {
 
     private String permissionsValue;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

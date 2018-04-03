@@ -28,18 +28,18 @@ import cn.mybase.ssm.bean.entity.vo.Result;
  *
  */
 public interface RolePermissionsService {
-	Result<RolePermissions> query(long id);
+	Result<RolePermissions> query(Integer id);
 
-	Result<List<RolePermissions>> queryByRoleId(long id);
+	Result<List<RolePermissions>> queryByRoleId(Integer id);
 
-	Result<Integer> save(long roleId, List<Long> permissionList);
+	Result<Integer> save(Integer roleId, List<Integer> permissionList);
 
-	Result<Integer> update(long roleId, List<Long> permissionList);
+	Result<Integer> update(Integer roleId, List<Integer> permissionList);
 	
-	Result<Integer> delete(long roleId);
+	Result<Integer> delete(Integer roleId);
 
 	Result<Integer> deleteByRolePermissions(RolePermissions RolePermissions);
 	
-	Result<List<RolePermissions>> listForRoleId(List<Long> idList);
+	Result<List<RolePermissions>> listForRoleId(List<Integer> idList);
 
 }

@@ -34,7 +34,7 @@
 					</a>
 					<ul class="treeview-menu">
 						<li>
-							<a target="navTab" href="${ctx}/security/list">
+							<a target="navTab" href="${ctx}/user/list">
 								<i class="fa fa-inbox"></i> 
 								<span>用户管理</span> 
 							</a>
@@ -66,8 +66,8 @@
 
 <#macro header>
 <header class="main-header">
-	<a href="index2.html" class="logo">
-		<span class="logo-mini"><b>R</b><b>C</b></span>
+	<a href="${ctx}/index" class="logo">
+		<span class="logo-mini"><b>SEC</b></span>
 		<span class="logo-lg"><b>安全管理平台 </b></span>
 	</a>
 	<nav class="navbar navbar-static-top">

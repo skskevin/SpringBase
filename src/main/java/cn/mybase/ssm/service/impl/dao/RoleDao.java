@@ -29,7 +29,7 @@ import cn.mybase.ssm.util.base.Page;
  */
 public interface RoleDao {
 
-	Role selectById(long id);
+	Role selectById(Integer id);
 	
 	Role selectByRoleName(String roleName);
 
@@ -37,11 +37,11 @@ public interface RoleDao {
 
 	int update(Role role);
 
-	int deleteById(long id);
+	int deleteById(Integer id);
 
 	Page<Role> listForPage(int pageCurrent, int pageSize, String date, String seah);
 	
-	List<Role> listForId(List<Long> idList);
+	List<Role> listForId(List<Integer> idList);
 
 	List<Role> list();
 }

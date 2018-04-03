@@ -34,7 +34,7 @@ public class RoleServiceImpl implements RoleService {
 	private RoleDao dao;
 
 	@Override
-	public Result<Role> query(long id) {
+	public Result<Role> query(Integer id) {
 		Result<Role> result = new Result<Role>();
 		if (id < 0) {
 			result.setErrMsg("此id无效");
@@ -92,7 +92,7 @@ public class RoleServiceImpl implements RoleService {
 	}
 
 	@Override
-	public Result<Integer> delete(long id) {
+	public Result<Integer> delete(Integer id) {
 		Result<Integer> result = new Result<Integer>();
 		if (id < 0) {
 			result.setErrMsg("此id无效");
@@ -160,7 +160,7 @@ public class RoleServiceImpl implements RoleService {
 	}
 
 	@Override
-	public Result<List<Role>> listForId(List<Long> idList) {
+	public Result<List<Role>> listForId(List<Integer> idList) {
 		Result<List<Role>> result = new Result<List<Role>>();
 		if (idList.size() < 1) {
 			result.setErrMsg("没有id需要查询");

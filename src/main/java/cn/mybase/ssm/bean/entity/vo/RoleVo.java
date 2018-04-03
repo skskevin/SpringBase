@@ -15,7 +15,7 @@ public class RoleVo implements Serializable {
 	 */
 	private static final long serialVersionUID = -5657330758447750715L;
 
-	private Long id;
+	private Integer id;
 
 	private String status;
 	
@@ -40,11 +40,11 @@ public class RoleVo implements Serializable {
 		this.roleValue = Role.getRoleValue();
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

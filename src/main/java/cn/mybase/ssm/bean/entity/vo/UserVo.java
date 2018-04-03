@@ -21,7 +21,7 @@ public class UserVo implements Serializable {
 	 */
 	private static final long serialVersionUID = 1439710637271708310L;
 
-	private Long id;
+	private Integer id;
 
 	private String status;
 	
@@ -54,11 +54,11 @@ public class UserVo implements Serializable {
 		this.sex = User.getSex();
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

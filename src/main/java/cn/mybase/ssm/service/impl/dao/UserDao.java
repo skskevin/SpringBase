@@ -33,9 +33,9 @@ public interface UserDao {
 	
 	int update(User user);
 	
-	int deleteById(Long id);
+	int deleteById(Integer id);
 	
 	Page<User> listForPage(int pageCurrent, int pageSize, String date, String seah);
 	
-	User select(long id);
+	User select(Integer id);
 }

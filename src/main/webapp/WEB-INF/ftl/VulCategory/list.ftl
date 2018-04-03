@@ -65,7 +65,7 @@ $(function() {
         },
 		"serverSide":true, //启用服务器端分页
 		"bInfo":false,
-		"language":{"url":"plugins/datatables/language.json"},
+		//"language":{"url":"plugins/datatables/language.json"},
 		"ajax":{"url":"${ctx}/VulCategory/page","type":"post"},
 		"columns":[ 
 		    {"data":null}, 
@@ -116,7 +116,6 @@ function dataReload(){
 
 <#-- 此函数必须放在list.ftl中 -->
 function update(){
-    console.log(11111);
 	$("span").remove(".errorClass");
 	$("br").remove(".errorClass");
 	var status = 1;

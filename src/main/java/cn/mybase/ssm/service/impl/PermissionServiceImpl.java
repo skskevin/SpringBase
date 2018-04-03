@@ -34,7 +34,7 @@ public class PermissionServiceImpl implements PermissionService {
 	private PermissionDao dao;
 
 	@Override
-	public Result<Permission> query(long id) {
+	public Result<Permission> query(Integer id) {
 		Result<Permission> result = new Result<Permission>();
 		if (id < 0) {
 			result.setErrMsg("此id无效");
@@ -97,7 +97,7 @@ public class PermissionServiceImpl implements PermissionService {
 	}
 
 	@Override
-	public Result<Integer> delete(long id) {
+	public Result<Integer> delete(Integer id) {
 		Result<Integer> result = new Result<Integer>();
 		if (id < 0) {
 			result.setErrMsg("此id无效");
@@ -134,7 +134,7 @@ public class PermissionServiceImpl implements PermissionService {
 	}
 
 	@Override
-	public Result<List<Permission>> listForId(List<Long> idList) {
+	public Result<List<Permission>> listForId(List<Integer> idList) {
 		Result<List<Permission>> result = new Result<List<Permission>>();
 		if (idList.size() < 1) {
 			result.setErrMsg("没有id需要查询");

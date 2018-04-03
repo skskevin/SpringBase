@@ -30,17 +30,17 @@ import cn.mybase.ssm.util.base.Page;
  */
 public interface PermissionService {
 
-	Result<Permission> query(long id);
+	Result<Permission> query(Integer id);
 
 	Result<Integer> save(Permission Permission);
 
 	Result<Integer> update(Permission Permission);
 
-	Result<Integer> delete(long id);
+	Result<Integer> delete(Integer id);
 	
 	Result<Page<Permission>> listForPage(int pageCurrent, int pageSize, String date, String seah);
 	
-	Result<List<Permission>> listForId(List<Long> idList);
+	Result<List<Permission>> listForId(List<Integer> idList);
 	
 	Result<List<Permission>> list();
 }

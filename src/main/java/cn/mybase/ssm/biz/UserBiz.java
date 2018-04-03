@@ -112,7 +112,7 @@ public class UserBiz {
 	 * @param id
 	 * @return
 	 */
-	public Result<UserVo> query(long id) {
+	public Result<UserVo> query(Integer id) {
 		Result<UserVo> resultVo = new Result<UserVo>();
 		Result<User> result = userService.query(id);
 		if (result.isStatus()) {
@@ -156,9 +156,9 @@ public class UserBiz {
 	 * @param userId
 	 * @return
 	 */
-	public Result<List<Role>> queryRoles(long userId) {
+	public Result<List<Role>> queryRoles(Integer userId) {
 		Result<List<UserRole>> resultUR = userRoleService.queryByUserId(userId);
-		ArrayList<Long> params = new ArrayList<Long>();
+		ArrayList<Integer> params = new ArrayList<Integer>();
 		for (UserRole UserRole : resultUR.getResultData()) {
 			params.add(UserRole.getRolesId());
 		}
@@ -173,13 +173,13 @@ public class UserBiz {
 	 * @return
 	 */
 	public Result<List<Permission>> queryPermissions(List<Role> roles) {
-		ArrayList<Long> roleParams = new ArrayList<Long>();
+		ArrayList<Integer> roleParams = new ArrayList<Integer>();
 		for (Role Role : roles) {
 			roleParams.add(Role.getId());
 		}
 		Result<List<RolePermissions>> resultRP = rolePermissionsService.listForRoleId(roleParams);
 		if (resultRP.isStatus()) {
-			ArrayList<Long> params = new ArrayList<Long>();
+			ArrayList<Integer> params = new ArrayList<Integer>();
 			for (RolePermissions RolePermissions : resultRP.getResultData()) {
 				params.add(RolePermissions.getPermissionId());
 			}
@@ -189,7 +189,7 @@ public class UserBiz {
 	}
 
 	@Transactional
-	public Result<Integer> save(User User, List<Long> roles) {
+	public Result<Integer> save(User User, List<Integer> roles) {
 		Result<Integer> result = userService.save(User);
 		if (result.isStatus()) {
 			Result<User> resultUser = userService.queryByUserNo(User.getUserNo());
@@ -201,7 +201,7 @@ public class UserBiz {
 	}
 
 	@Transactional
-	public Result<Integer> delete(long userId) {
+	public Result<Integer> delete(Integer userId) {
 		UserRole UserRole = new UserRole();
 		UserRole.setUserId(userId);
 		Result<Integer> result = userRoleService.deleteByUserRole(UserRole);
@@ -212,7 +212,7 @@ public class UserBiz {
 	}
 
 	@Transactional
-	public Result<Integer> update(User User, List<Long> roles) {
+	public Result<Integer> update(User User, List<Integer> roles) {
 		Result<Integer> result = userService.update(User);
 		if (result.isStatus()) {
 			return userRoleService.updateByUserId(User.getId(), roles);

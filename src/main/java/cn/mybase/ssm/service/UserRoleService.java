@@ -29,7 +29,7 @@ import cn.mybase.ssm.bean.entity.vo.Result;
  */
 public interface UserRoleService {
 
-	Result<List<UserRole>> queryByUserId(long id);
+	Result<List<UserRole>> queryByUserId(Integer id);
 
 	Result<UserRole> queryByUserRole(UserRole UserRole);
 
@@ -37,7 +37,7 @@ public interface UserRoleService {
 
 	Result<Integer> update(UserRole UserRole);
 
-	Result<Integer> updateByUserId(long userId, List<Long> roles);
+	Result<Integer> updateByUserId(Integer userId, List<Integer> roles);
 	
 	Result<Integer> deleteByUserRole(UserRole UserRole);
 }
