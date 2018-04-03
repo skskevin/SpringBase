@@ -16,10 +16,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import cn.mybase.ssm.bean.entity.Permission;
 import cn.mybase.ssm.bean.entity.Role;
 import cn.mybase.ssm.bean.entity.vo.Result;
+import cn.mybase.ssm.bean.entity.vo.RoleVo;
 import cn.mybase.ssm.biz.RoleBiz;
 import cn.mybase.ssm.util.base.BaseController;
 import cn.mybase.ssm.util.base.Page;
 import cn.mybase.ssm.util.base.PageBean;
+import cn.mybase.ssm.util.base.ParamUtil;
 
 /**
  * @Title: RoleController
@@ -34,20 +36,20 @@ public class RoleController extends BaseController {
 	@Autowired
 	private RoleBiz biz;
 
-	@RequestMapping(value = LIST, method=RequestMethod.GET)
+	@RequestMapping(value = LIST, method = RequestMethod.GET)
 	public void list() {
 
 	}
-	
+
 	/**
 	 * 
-	* @Title: queryForPage  
-	* @Description: 分页查询 
-	* @param start
-	* @param pageSize
-	* @param date
-	* @param search
-	* @return
+	 * @Title: queryForPage
+	 * @Description: 分页查询
+	 * @param start
+	 * @param pageSize
+	 * @param date
+	 * @param search
+	 * @return
 	 */
 	@ResponseBody
 	@RequestMapping(value = PAGE)
@@ -63,12 +65,63 @@ public class RoleController extends BaseController {
 		return new PageBean<Role>();
 
 	}
-	
-	@RequestMapping(value = ADD, method=RequestMethod.GET)
-	public void add(ModelMap modelMap){
+
+	@RequestMapping(value = ADD, method = RequestMethod.GET)
+	public void add(ModelMap modelMap) {
 		Result<List<Permission>> resultPermission = biz.queryPermissionList();
-		if (resultPermission.isStatus()){
+		if (resultPermission.isStatus()) {
 			modelMap.put("permissions", resultPermission.getResultData());
 		}
+	}
+
+	@RequestMapping(value = SAVE)
+	public String save(Role role, String permission) {
+		List<Integer> permissions = ParamUtil.toIntList(permission, ",");
+		Result<Integer> result = biz.save(role, permissions);
+		if (result.isStatus()) {
+			return redirect("/role/list");
+		}
+		return null;
+
+	}
+
+	@RequestMapping(value = VIEW, method = RequestMethod.GET)
+	public void view(ModelMap modelMap, Integer id) {
+		Result<RoleVo> result = biz.query(id);
+		if (result.isStatus()) {
+			modelMap.put("bean", result.getResultData());
+		}
+	}
+
+	@RequestMapping(value = EDIT, method = RequestMethod.GET)
+	public void edit(ModelMap modelMap, Integer id) {
+		Result<RoleVo> result = biz.query(id);
+		if (result.isStatus()) {
+			modelMap.put("bean", result.getResultData());
+		}
+		Result<List<Permission>> resultPermission = biz.queryPermissionList();
+		if (resultPermission.isStatus()) {
+			modelMap.put("permissions", resultPermission.getResultData());
+		}
+	}
+	
+	@ResponseBody
+	@RequestMapping(value=UPDATE, method=RequestMethod.POST)
+	public String update(Role role, String permission){
+		List<Integer> permissions = ParamUtil.toIntList(permission, ",");
+		Result<Integer> result = biz.update(role, permissions);
+		if (result.isStatus()){
+			return redirect("/role/list");
+		}
+		return null;
+	}
+	
+	@RequestMapping(value=DELETE, method = RequestMethod.GET)
+	public String delete(Integer id){
+		Result<Integer> result = biz.delete(id);
+		if (result.isStatus()){
+			return redirect("/role/list");
+		}
+		return null;
 	}
 }

@@ -50,7 +50,7 @@ function roleAdd(){
 		return false;
 	}else{
 		$.ajax({
-			url: '${ctx}/admin/role/save',
+			url: '${ctx}/role/save',
 	        type: 'post',
 	        dataType: 'text',
 	        data: $("#roleAddForm").serialize(),

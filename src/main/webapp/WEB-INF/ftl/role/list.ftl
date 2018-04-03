@@ -141,4 +141,38 @@ function roleReload(){
 function roleToListAjax(){
 	list_ajax = role_tab;
 }
+
+function roleUpdate(){
+		$("span").remove(".errorClass");
+		$("br").remove(".errorClass");
+		var status = 1;
+		if($("#roleName").val()==""){
+			$("#roleNameLabel").prepend('<span class="errorClass" style="color:red">*角色名不能为空</span><br class="errorClass"/>');
+			status = 0;
+		}
+		if($("#roleValue").val()==""){
+			$("#roleValueLabel").prepend('<span class="errorClass" style="color:red">*角色值不能为空</span><br class="errorClass"/>');
+			status = 0;
+		}
+		if(status == 0){
+			return false;
+		}else{
+			ajaxPost();
+		}
+	}
+		
+	function ajaxPost() {
+		var options = {
+	        url: '${ctx}/role/update',
+	        type: 'post',
+	        dataType: 'text',
+	        data: $("#roleEditForm").serialize(),
+	        success: function (data) {
+	        	$("#lgModal").modal('hide');
+	        	alertMsg("更新成功","success");
+	        	reloadTable(list_ajax,"#roleTime","#rolePremise");
+	        }
+		};
+		$.ajax(options);
+	}
 </script>
