@@ -41,20 +41,13 @@ public class VulCategoryServiceImpl implements VulCategoryService {
 	/**
 	 * 分页信息
 	 */
-	public PagedResult<VulCategoryVo> queryByPage(String search,
+	public PagedResult<VulCategory> queryByPage(String search,
 			@RequestParam(value = "pageNo", defaultValue = "1") Integer pageNo,
 			@RequestParam(value = "length", defaultValue = "10") Integer pageSize) throws Exception {
 		pageNo = pageNo == null ? 1 : pageNo;
 		pageSize = pageSize == null ? 10 : pageSize;
 		PageHelper.startPage(pageNo, pageSize); // startPage是告诉拦截器说我要开始分页了。分页参数是这两个。
-		List<VulCategory> result = vulCategoryMapperCustom.listForPage(search);
-		ArrayList<VulCategoryVo> resultVo = new ArrayList<VulCategoryVo>();
-		
-		for(VulCategory vulCategory : result){
-			VulCategoryVo vulCategoryVo = new VulCategoryVo(vulCategory);
-			resultVo.add(vulCategoryVo);
-		}
-		return  BeanUtil.toPagedResult(resultVo);
+		return  BeanUtil.toPagedResult(vulCategoryMapperCustom.listForPage(search));
 	}
 
 	/**
@@ -70,11 +63,10 @@ public class VulCategoryServiceImpl implements VulCategoryService {
 	 * 查看详情
 	 */
 	@Override
-	public VulCategoryVo selectById(Integer id) throws Exception {
+	public VulCategory selectById(Integer id) throws Exception {
 		VulCategory vulCategory = vulCategoryMapper.selectByPrimaryKey(id);
-		VulCategoryVo vulCategoryVo = new VulCategoryVo(vulCategory);
 		
-		return vulCategoryVo;
+		return vulCategory;
 	}
 
 	/* 

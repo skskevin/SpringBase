@@ -29,9 +29,35 @@ public class PagedResult<T> extends BaseEntity {
       
     private long pages;//总页面数目  
   
-
+    
   
-    public long getPageNo() {  
+    /**
+	 * 
+	 */
+	public PagedResult() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @param data
+	 * @param pageNo
+	 * @param pageSize
+	 * @param recordsTotal
+	 * @param recordsFiltered
+	 * @param pages
+	 */
+	public PagedResult(List<T> data, long pageNo, long pageSize, long recordsTotal, long recordsFiltered, long pages) {
+		super();
+		this.data = data;
+		this.pageNo = pageNo;
+		this.pageSize = pageSize;
+		this.recordsTotal = recordsTotal;
+		this.recordsFiltered = recordsFiltered;
+		this.pages = pages;
+	}
+
+	public long getPageNo() {  
         return pageNo;  
     }  
   

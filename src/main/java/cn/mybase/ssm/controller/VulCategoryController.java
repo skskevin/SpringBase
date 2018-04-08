@@ -3,6 +3,9 @@
  */
 package cn.mybase.ssm.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -19,9 +22,16 @@ import cn.mybase.ssm.util.base.PagedResult;
 
 /**
  * 
- * <p>Title: VulCategoryController</p>
- * <p>Description: </p>
- * <p>Company: </p>
+ * <p>
+ * Title: VulCategoryController
+ * </p>
+ * <p>
+ * Description:
+ * </p>
+ * <p>
+ * Company:
+ * </p>
+ * 
  * @author dongchuan
  * @date 2018年3月19日 上午10:02:34
  * @version 1.0
@@ -40,6 +50,7 @@ public class VulCategoryController extends BaseController {
 
 	/**
 	 * 分页查询
+	 * 
 	 * @param start
 	 * @param length
 	 * @param search
@@ -51,22 +62,31 @@ public class VulCategoryController extends BaseController {
 	public PagedResult<VulCategoryVo> queryForPage(Integer start, Integer length, String search) throws Exception {
 		length = length < 1 ? 10 : length;
 		int pageNo = start < length ? 1 : start / length + 1;
-		PagedResult<VulCategoryVo> pagedResult = vulCategoryService.queryByPage(search, pageNo, length);
-		return pagedResult;
+		PagedResult<VulCategory> pagedResult = vulCategoryService.queryByPage(search, pageNo, length);
+		List<VulCategoryVo> resultVo = new ArrayList<VulCategoryVo>();
+		for (VulCategory vulCategory : pagedResult.getData()) {
+			VulCategoryVo VulCategoryVo = new VulCategoryVo(vulCategory);
+			resultVo.add(VulCategoryVo);
+		}
+		PagedResult<VulCategoryVo> pagedResultVo = new PagedResult<VulCategoryVo>(resultVo, pagedResult.getPageNo(),
+				pagedResult.getPageSize(), pagedResult.getRecordsTotal(), pagedResult.getRecordsFiltered(),
+				pagedResult.getPages());
+		
+		return pagedResultVo;
 	}
-	
+
 	@RequestMapping(value = ADD)
 	public void add() {
-		
+
 	}
-	
+
 	/**
 	 * 
-	* @Title: save  
-	* @Description: 保存新增 
-	* @param vulCategoryCustom
-	* @return
-	* @throws Exception
+	 * @Title: save
+	 * @Description: 保存新增
+	 * @param vulCategoryCustom
+	 * @return
+	 * @throws Exception
 	 */
 	@RequestMapping(value = SAVE)
 	public String save(VulCategory vulCategory) throws Exception {
@@ -76,28 +96,27 @@ public class VulCategoryController extends BaseController {
 		}
 		return null;
 	}
-	
+
 	/**
-	 *   
-	* @Title: view  
-	* @Description: 查看详情
-	* @param modelMap
-	* @param id
-	 * @throws Exception 
+	 * 
+	 * @Title: view
+	 * @Description: 查看详情
+	 * @param modelMap
+	 * @param id
+	 * @throws Exception
 	 */
 	@RequestMapping(value = VIEW, method = RequestMethod.GET)
 	public void view(ModelMap modelMap, Integer id) throws Exception {
-		VulCategoryVo vulCategoryVo = vulCategoryService.selectById(id);
-	    modelMap.put("result", vulCategoryVo);
+		VulCategory vulCategory = vulCategoryService.selectById(id);
+		modelMap.put("result", vulCategory);
 	}
-	
-	
+
 	@RequestMapping(value = EDIT, method = RequestMethod.GET)
 	public void edit(ModelMap modelMap, Integer id) throws Exception {
-		VulCategoryVo vulCategoryVo = vulCategoryService.selectById(id);
-	    modelMap.put("result", vulCategoryVo);
+		VulCategory vulCategory = vulCategoryService.selectById(id);
+		modelMap.put("result", vulCategory);
 	}
-    
+
 	@RequestMapping(value = UPDATE, method = RequestMethod.POST)
 	@ResponseBody
 	public String update(VulCategory vulCategory, Integer id) throws Exception {
@@ -107,7 +126,7 @@ public class VulCategoryController extends BaseController {
 		}
 		return null;
 	}
-	
+
 	@RequestMapping(value = DELETE, method = RequestMethod.GET)
 	@ResponseBody
 	public String delete(Integer id) throws Exception {

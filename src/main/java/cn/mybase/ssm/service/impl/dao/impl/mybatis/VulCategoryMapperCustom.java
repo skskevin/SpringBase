@@ -5,7 +5,6 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 import cn.mybase.ssm.bean.entity.VulCategory;
-import cn.mybase.ssm.bean.entity.vo.VulCategoryVo;
 import cn.mybase.ssm.util.base.MyBatis;
 
 @MyBatis

@@ -17,9 +17,9 @@ import cn.mybase.ssm.util.base.PagedResult;
  * @version 1.0
  */
 public interface VulCategoryService {
-	public PagedResult<VulCategoryVo> queryByPage(String search, Integer pageNo,Integer length) throws Exception;
+	public PagedResult<VulCategory> queryByPage(String search, Integer pageNo,Integer length) throws Exception;
 	public int insert(VulCategory vulCategory) throws Exception;
-	public VulCategoryVo selectById(Integer id) throws Exception;
+	public VulCategory selectById(Integer id) throws Exception;
 	public int update(VulCategory vulCategory, Integer id) throws Exception;
 	public int delete(Integer id) throws Exception;
 }
