@@ -5,7 +5,11 @@ package cn.mybase.ssm.controller;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import cn.mybase.ssm.shiro.CustomSessionManager;
+import cn.mybase.ssm.util.Constants;
 
 /**
  * <p>Title: IndexController</p>
@@ -21,8 +25,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class IndexController {
 	
 	@RequestMapping("/index")
-	public void index(){
-		
+	public void index(ModelMap modelMap){
+		 modelMap.put("nick_name",CustomSessionManager.getVal2Session(Constants.Token.NICK_NAME));
 	}
 
 }

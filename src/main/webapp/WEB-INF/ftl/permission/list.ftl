@@ -4,7 +4,7 @@
 			<div class="box-header">
 				<h3 class="box-title">角色管理</h3>
 				<div class="box-tools pull-right">
-					<@shiro.hasPermission name="super:insert">
+					<@shiro.hasPermission name="admin:insert">
 						<a onclick="permissionToListAjax();" class="btn btn-sm btn-primary" target="modal" modal="lg" href="${ctx}/permission/add">添加</a>
 					</@shiro.hasPermission>
 				</div>
@@ -121,10 +121,10 @@ $(function() {
 				"data" : null,
 				"render" : function(data) {
 					var btn = '<a class="btn btn-xs btn-primary" target="modal" modal="lg" href="${ctx}/permission/view?id='+ data.id+'">查看</a>&nbsp;'
-					+'<@shiro.hasPermission name="super:update">'
+					+'<@shiro.hasPermission name="admin:update">'
 					+'<a class="btn btn-xs btn-info" onclick="permissionToListAjax();" target="modal" modal="lg" href="${ctx}/permission/edit?id='+ data.id+'">修改</a>&nbsp;'
 					+'</@shiro.hasPermission>'
-					+'<@shiro.hasPermission name="super:delete">'
+					+'<@shiro.hasPermission name="admin:delete">'
 					+'<a class="btn btn-xs btn-default " callback="permissionReload();" data-body="确认要删除吗？" target="ajaxTodo" href="${ctx}/permission/delete?id='+ data.id +'">删除</a>';
 					+'</@shiro.hasPermission>'
 					return btn;

@@ -25,7 +25,7 @@
 					</li>
 				</ul>
 			</li>
-			<#-- <@shiro.hasPermission name="user:read"> -->
+			<@shiro.hasPermission name="admin:read">
 				<li class="treeview">
 					<a href="#">
 						<i class="fa fa-envelope"></i> 
@@ -53,12 +53,14 @@
 						</li>
 					</ul>
 				</li>
-			<#-- </@shiro.hasPermission> -->
+			</@shiro.hasPermission>
+			<@shiro.hasPermission name="user:read">
 			<li>
 				<a target="navTab" href="${ctx}/VulCategory/list">
 					<i class="fa fa-folder"></i> <span>漏洞分类</span> </i>
 				</a>
 			</li>
+			</@shiro.hasPermission>
 		</ul>
 	</section>
 </aside>
@@ -78,13 +80,13 @@
 			<ul class="nav navbar-nav">
 				<li class="dropdown user user-menu">
 					<a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-						<img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image"> <span class="hidden-xs">Admin</span>
+						<img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image"> <span class="hidden-xs">${nick_name}</span>
 					</a>
 					<ul class="dropdown-menu">
 						<li class="user-header">
 							<img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 							<p>
-								超级管理员
+								${nick_name}
 							</p>
 						</li>
 						<li class="user-footer">

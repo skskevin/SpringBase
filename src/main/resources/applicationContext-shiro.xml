@@ -39,7 +39,7 @@
 				/login = authc
 				/exit = anon
 				/index = authcBasic,perms[user:read]
-				/user/list=authcBasic,perms[admin:read]
+				<!-- /user/list=authcBasic,perms[admin:read]
 				/user/save=authcBasic,perms[admin:insert]
 				/user/update=authcBasic,perms[admin:update]
 				/user/delete=authcBasic,perms[admin:delete]
@@ -47,11 +47,13 @@
 				/role/save=authcBasic,perms[admin:insert]
 				/role/update=authcBasic,perms[admin:update]
 				/role/delete=authcBasic,perms[admin:delete]
-				/permission/list=authcBasic,perms[super:read]
-				/permission/save=authcBasic,perms[super:insert]
-				/permission/update=authcBasic,perms[super:update]
-				/permission/delete=authcBasic,perms[super:delete]
-				/permission/**=authcBasic,roles[super]
+				/permission/list=authcBasic,perms[admin:read]
+				/permission/save=authcBasic,perms[admin:insert]
+				/permission/update=authcBasic,perms[admin:update]
+				/permission/delete=authcBasic,perms[admin:delete] -->
+				/user/** = authcBasic,roles[admin]
+				/role/** = authcBasic,roles[admin]
+				/permission/** = authcBasic,roles[admin]
 				/*/list = authcBasic,perms[user:read]
 				/*/save = authcBasic,perms[user:insert]
 				/*/update = authcBasic,perms[user:update]

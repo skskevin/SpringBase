@@ -24,6 +24,7 @@ public final class Constants {
 	public interface Token {
 		public final static String FLAG = "login";
 		public final static String ERRMSG = "errmsg";
+		public final static String NICK_NAME = "nick_name";
 	}
 
 	/**

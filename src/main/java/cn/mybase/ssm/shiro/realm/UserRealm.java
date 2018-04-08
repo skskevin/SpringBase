@@ -78,6 +78,7 @@ public class UserRealm extends AuthorizingRealm {
 		if (result.isStatus()) {
 			CustomSessionManager.setVal2Session(Constants.Token.FLAG, "isLogin");
 			User user = result.getResultData();
+			CustomSessionManager.setVal2Session(Constants.Token.NICK_NAME, user.getNickName());
 			return new SimpleAuthenticationInfo(user.getUserNo(), user.getPassword(), getName());
 		}
 		CustomSessionManager.setVal2Session(Constants.Token.ERRMSG, "帐号或密码错误!");
