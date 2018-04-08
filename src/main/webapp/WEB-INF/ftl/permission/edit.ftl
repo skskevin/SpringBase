@@ -22,32 +22,5 @@
 	</div>
 </div>
 <script type="text/javascript">
-	function permissionUpdate(){
-		$("span").remove(".errorClass");
-		$("br").remove(".errorClass");
-		var status = 1;
-		if($("#permissionsName").val()==""){
-			$("#permissionNameLabel").prepend('<span class="errorClass" style="color:red">*权限名不能为空</span><br class="errorClass"/>');
-			status = 0;
-		}
-		if($("#permissionsValue").val()==""){
-			$("#permissionValueLabel").prepend('<span class="errorClass" style="color:red">*权限名不能为空</span><br class="errorClass"/>');
-			status = 0;
-		}
-		if(status == 0){
-			return false;
-		}else{
-			$.ajax({
-				url: "${ctx}/admin/permission/update",
-		        type: "post",
-		        dataType: "text",
-		        data: $("#permissionEditForm").serialize(),
-		        success: function (data) {
-		        	$("#lgModal").modal('hide');
-		        	alertMsg("更新成功","success");
-		        	reloadTable(list_ajax,"#permissionTime","#permissionPremise");
-		        }
-			});
-		}
-	}
+	
 </script>

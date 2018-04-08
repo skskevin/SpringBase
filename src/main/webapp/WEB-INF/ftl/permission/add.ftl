@@ -37,7 +37,7 @@ function permissionSave(){
 		return false;
 	}else{
 		$.ajax({
-			url: '${ctx}/admin/permission/save',
+			url: '${ctx}/permission/save',
 	        type: 'post',
 	        dataType: 'text',
 	        data: $("#permissionAddForm").serialize(),

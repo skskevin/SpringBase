@@ -18,6 +18,7 @@ package cn.mybase.ssm.service.impl.dao;
 import java.util.List;
 
 import cn.mybase.ssm.bean.entity.Permission;
+import cn.mybase.ssm.bean.entity.vo.PermissionVo;
 import cn.mybase.ssm.util.base.Page;
 
 

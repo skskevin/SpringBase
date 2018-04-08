@@ -5,7 +5,7 @@
 				<h3 class="box-title">角色管理</h3>
 				<div class="box-tools pull-right">
 					<@shiro.hasPermission name="super:insert">
-						<a onclick="permissionToListAjax();" class="btn btn-sm btn-primary" target="modal" modal="lg" href="${ctx}/admin/permission/add">添加</a>
+						<a onclick="permissionToListAjax();" class="btn btn-sm btn-primary" target="modal" modal="lg" href="${ctx}/permission/add">添加</a>
 					</@shiro.hasPermission>
 				</div>
 			</div>
@@ -85,7 +85,7 @@ $(function() {
 		"serverSide":true, //启用服务器端分页
 		"bInfo":false,
 		"language":{"url":"plugins/datatables/language.json"},
-		"ajax":{"url":"${ctx}/admin/permission/page","type":"post"},
+		"ajax":{"url":"${ctx}/permission/page","type":"post"},
 		"columns":[ 
 		    {"data":null}, 
 			{"data":"permissionsName"},
@@ -107,10 +107,10 @@ $(function() {
 			    targets: 3,
 			    data: null,
 			    render: function (data) {
-			    	if(data.statusId == "0"){
+			    	if(data.status == "0"){
 			    		return "不可用";
 			    	}
-			    	if(data.statusId == "1"){
+			    	if(data.status == "1"){
 			    		return "可用";
 			    	}
 			    	return "未知状态";
@@ -120,12 +120,12 @@ $(function() {
 				"targets" : -1,
 				"data" : null,
 				"render" : function(data) {
-					var btn = '<a class="btn btn-xs btn-primary" target="modal" modal="lg" href="${ctx}/admin/permission/view?id='+ data.id+'">查看</a>&nbsp;'
+					var btn = '<a class="btn btn-xs btn-primary" target="modal" modal="lg" href="${ctx}/permission/view?id='+ data.id+'">查看</a>&nbsp;'
 					+'<@shiro.hasPermission name="super:update">'
-					+'<a class="btn btn-xs btn-info" onclick="permissionToListAjax();" target="modal" modal="lg" href="${ctx}/admin/permission/edit?id='+ data.id+'">修改</a>&nbsp;'
+					+'<a class="btn btn-xs btn-info" onclick="permissionToListAjax();" target="modal" modal="lg" href="${ctx}/permission/edit?id='+ data.id+'">修改</a>&nbsp;'
 					+'</@shiro.hasPermission>'
 					+'<@shiro.hasPermission name="super:delete">'
-					+'<a class="btn btn-xs btn-default " callback="permissionReload();" data-body="确认要删除吗？" target="ajaxTodo" href="${ctx}/admin/permission/delete?id='+ data.id +'">删除</a>';
+					+'<a class="btn btn-xs btn-default " callback="permissionReload();" data-body="确认要删除吗？" target="ajaxTodo" href="${ctx}/permission/delete?id='+ data.id +'">删除</a>';
 					+'</@shiro.hasPermission>'
 					return btn;
 				}
@@ -143,4 +143,34 @@ function permissionToListAjax(){
 	list_ajax = permission_tab;
 	console.log(list_ajax);
 }
+
+function permissionUpdate(){
+	$("span").remove(".errorClass");
+	$("br").remove(".errorClass");
+	var status = 1;
+	if($("#permissionsName").val()==""){
+		$("#permissionNameLabel").prepend('<span class="errorClass" style="color:red">*权限名不能为空</span><br class="errorClass"/>');
+		status = 0;
+	}
+	if($("#permissionsValue").val()==""){
+		$("#permissionValueLabel").prepend('<span class="errorClass" style="color:red">*权限名不能为空</span><br class="errorClass"/>');
+		status = 0;
+	}
+	if(status == 0){
+		return false;
+	}else{
+		$.ajax({
+			url: "${ctx}/permission/update",
+	        type: "post",
+	        dataType: "text",
+	        data: $("#permissionEditForm").serialize(),
+	        success: function (data) {
+	        	$("#lgModal").modal('hide');
+	        	alertMsg("更新成功","success");
+	        	reloadTable(list_ajax,"#permissionTime","#permissionPremise");
+	        }
+		});
+	}
+}
+	
 </script>

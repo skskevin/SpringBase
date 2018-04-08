@@ -22,6 +22,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import cn.mybase.ssm.bean.entity.Permission;
+import cn.mybase.ssm.bean.entity.vo.PermissionVo;
 import cn.mybase.ssm.bean.entity.vo.Result;
 import cn.mybase.ssm.service.PermissionService;
 import cn.mybase.ssm.service.impl.dao.PermissionDao;

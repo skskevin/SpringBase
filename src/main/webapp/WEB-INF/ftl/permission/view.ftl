@@ -12,8 +12,8 @@
 			<tr>
 				<td>用户状态：</td>
 				<td>
-					<#if bean.statusId == '0'>不可用</#if>
-					<#if bean.statusId == '1'>可用</#if>
+					<#if bean.status == '0'>不可用</#if>
+					<#if bean.status == '1'>可用</#if>
 				</td>
 			</tr>
 			<tr>

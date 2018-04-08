@@ -25,6 +25,7 @@ import org.springframework.util.StringUtils;
 import cn.mybase.ssm.bean.entity.Permission;
 import cn.mybase.ssm.bean.entity.PermissionExample;
 import cn.mybase.ssm.bean.entity.PermissionExample.Criteria;
+import cn.mybase.ssm.bean.entity.vo.PermissionVo;
 import cn.mybase.ssm.service.impl.dao.PermissionDao;
 import cn.mybase.ssm.service.impl.dao.impl.mybatis.PermissionMapper;
 import cn.mybase.ssm.util.base.Page;
