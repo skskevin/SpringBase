@@ -3,11 +3,10 @@
  */
 package cn.mybase.ssm.service.impl;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
-import org.apache.commons.beanutils.BeanUtils;
-import org.apache.commons.beanutils.ConvertUtils;
-import org.apache.commons.beanutils.converters.DateConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.github.pagehelper.PageHelper;
 
 import cn.mybase.ssm.bean.entity.VulCategory;
-import cn.mybase.ssm.bean.entity.VulCategoryCustom;
+import cn.mybase.ssm.bean.entity.vo.VulCategoryVo;
 import cn.mybase.ssm.service.VulCategoryService;
 import cn.mybase.ssm.service.impl.dao.impl.mybatis.VulCategoryMapper;
 import cn.mybase.ssm.service.impl.dao.impl.mybatis.VulCategoryMapperCustom;
@@ -42,44 +41,49 @@ public class VulCategoryServiceImpl implements VulCategoryService {
 	/**
 	 * 分页信息
 	 */
-	public PagedResult<VulCategoryCustom> queryByPage(String search,
+	public PagedResult<VulCategoryVo> queryByPage(String search,
 			@RequestParam(value = "pageNo", defaultValue = "1") Integer pageNo,
 			@RequestParam(value = "length", defaultValue = "10") Integer pageSize) throws Exception {
 		pageNo = pageNo == null ? 1 : pageNo;
 		pageSize = pageSize == null ? 10 : pageSize;
 		PageHelper.startPage(pageNo, pageSize); // startPage是告诉拦截器说我要开始分页了。分页参数是这两个。
-		return BeanUtil.toPagedResult(vulCategoryMapperCustom.listForPage(search));
+		List<VulCategory> result = vulCategoryMapperCustom.listForPage(search);
+		ArrayList<VulCategoryVo> resultVo = new ArrayList<VulCategoryVo>();
+		
+		for(VulCategory vulCategory : result){
+			VulCategoryVo vulCategoryVo = new VulCategoryVo(vulCategory);
+			resultVo.add(vulCategoryVo);
+		}
+		return  BeanUtil.toPagedResult(resultVo);
 	}
 
 	/**
 	 * 新增记录
 	 */
 	@Override
-	public int insert(VulCategoryCustom vulCategoryCustom) throws Exception {
-		vulCategoryCustom.setCreateTime(new Date());
-		return vulCategoryMapperCustom.insert(vulCategoryCustom);
+	public int insert(VulCategory VulCategory) throws Exception {
+		VulCategory.setCreateTime(new Date());
+		return vulCategoryMapperCustom.insert(VulCategory);
 	}
 
 	/*
 	 * 查看详情
 	 */
 	@Override
-	public VulCategoryCustom selectById(Integer id) throws Exception {
+	public VulCategoryVo selectById(Integer id) throws Exception {
 		VulCategory vulCategory = vulCategoryMapper.selectByPrimaryKey(id);
-		VulCategoryCustom vulCategoryCustom = null;
-		vulCategoryCustom = new VulCategoryCustom();
-		ConvertUtils.register(new DateConverter(null), java.util.Date.class); 
-		BeanUtils.copyProperties(vulCategoryCustom,vulCategory);
-		return vulCategoryCustom;
+		VulCategoryVo vulCategoryVo = new VulCategoryVo(vulCategory);
+		
+		return vulCategoryVo;
 	}
 
 	/* 
 	 * 修改
 	 */
 	@Override
-	public int update(VulCategoryCustom vulCategoryCustom, Integer id) throws Exception {
-		vulCategoryCustom.setId(id);
-		return vulCategoryMapperCustom.update(vulCategoryCustom);
+	public int update(VulCategory VulCategory, Integer id) throws Exception {
+		VulCategory.setId(id);
+		return vulCategoryMapperCustom.update(VulCategory);
 	}
 
 	/* (non-Javadoc)

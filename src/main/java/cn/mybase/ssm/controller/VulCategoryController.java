@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import cn.mybase.ssm.bean.entity.VulCategoryCustom;
+import cn.mybase.ssm.bean.entity.VulCategory;
+import cn.mybase.ssm.bean.entity.vo.VulCategoryVo;
 import cn.mybase.ssm.service.VulCategoryService;
 import cn.mybase.ssm.util.base.BaseController;
 import cn.mybase.ssm.util.base.PagedResult;
@@ -47,10 +48,10 @@ public class VulCategoryController extends BaseController {
 	 */
 	@ResponseBody
 	@RequestMapping(value = PAGE)
-	public PagedResult<VulCategoryCustom> queryForPage(Integer start, Integer length, String search) throws Exception {
+	public PagedResult<VulCategoryVo> queryForPage(Integer start, Integer length, String search) throws Exception {
 		length = length < 1 ? 10 : length;
 		int pageNo = start < length ? 1 : start / length + 1;
-		PagedResult<VulCategoryCustom> pagedResult = vulCategoryService.queryByPage(search, pageNo, length);
+		PagedResult<VulCategoryVo> pagedResult = vulCategoryService.queryByPage(search, pageNo, length);
 		return pagedResult;
 	}
 	
@@ -68,8 +69,8 @@ public class VulCategoryController extends BaseController {
 	* @throws Exception
 	 */
 	@RequestMapping(value = SAVE)
-	public String save(VulCategoryCustom vulCategoryCustom) throws Exception {
-		int rs = vulCategoryService.insert(vulCategoryCustom);
+	public String save(VulCategory vulCategory) throws Exception {
+		int rs = vulCategoryService.insert(vulCategory);
 		if (rs > 0) {
 			return redirect("/VulCategory/list");
 		}
@@ -86,21 +87,21 @@ public class VulCategoryController extends BaseController {
 	 */
 	@RequestMapping(value = VIEW, method = RequestMethod.GET)
 	public void view(ModelMap modelMap, Integer id) throws Exception {
-		VulCategoryCustom vulCategoryCustom = vulCategoryService.selectById(id);
-	    modelMap.put("result", vulCategoryCustom);
+		VulCategoryVo vulCategoryVo = vulCategoryService.selectById(id);
+	    modelMap.put("result", vulCategoryVo);
 	}
 	
 	
 	@RequestMapping(value = EDIT, method = RequestMethod.GET)
 	public void edit(ModelMap modelMap, Integer id) throws Exception {
-		VulCategoryCustom vulCategoryCustom = vulCategoryService.selectById(id);
-	    modelMap.put("result", vulCategoryCustom);
+		VulCategoryVo vulCategoryVo = vulCategoryService.selectById(id);
+	    modelMap.put("result", vulCategoryVo);
 	}
     
 	@RequestMapping(value = UPDATE, method = RequestMethod.POST)
 	@ResponseBody
-	public String update(VulCategoryCustom vulCategoryCustom, Integer id) throws Exception {
-		int rs = vulCategoryService.update(vulCategoryCustom, id);
+	public String update(VulCategory vulCategory, Integer id) throws Exception {
+		int rs = vulCategoryService.update(vulCategory, id);
 		if (rs > 0) {
 			return redirect("/VulCategory/list");
 		}

@@ -4,7 +4,8 @@
 package cn.mybase.ssm.service;
 
 
-import cn.mybase.ssm.bean.entity.VulCategoryCustom;
+import cn.mybase.ssm.bean.entity.VulCategory;
+import cn.mybase.ssm.bean.entity.vo.VulCategoryVo;
 import cn.mybase.ssm.util.base.PagedResult;
 
 /**
@@ -16,9 +17,9 @@ import cn.mybase.ssm.util.base.PagedResult;
  * @version 1.0
  */
 public interface VulCategoryService {
-	public PagedResult<VulCategoryCustom> queryByPage(String search, Integer pageNo,Integer length) throws Exception;
-	public int insert(VulCategoryCustom vulCategoryCustom) throws Exception;
-	public VulCategoryCustom selectById(Integer id) throws Exception;
-	public int update(VulCategoryCustom vulCategoryCustom, Integer id) throws Exception;
+	public PagedResult<VulCategoryVo> queryByPage(String search, Integer pageNo,Integer length) throws Exception;
+	public int insert(VulCategory vulCategory) throws Exception;
+	public VulCategoryVo selectById(Integer id) throws Exception;
+	public int update(VulCategory vulCategory, Integer id) throws Exception;
 	public int delete(Integer id) throws Exception;
 }
